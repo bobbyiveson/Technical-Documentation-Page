@@ -4,13 +4,15 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-body {
+html {
   background-color: whitesmoke;
+}
+body {
   overflow: hidden;
 }
 
 #main-grid {
+  height: 100vh;
   display: grid;
   grid-template-columns: 280px 1fr;
 }
@@ -20,8 +22,7 @@ body {
   flex-direction: column;
   border-right: 3px solid rgba(0, 0, 0, 0.5);
   overflow: scroll;
-
-  height: 100vh;
+  max-height: 100vh;
 }
 
 #navbar header {
@@ -29,7 +30,11 @@ body {
   justify-content: center;
   align-items: center;
   flex: 0 0 70px;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.7);
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
 }
 #navbar h1 {
   font-size: 2rem;
@@ -44,7 +49,7 @@ body {
   color: rgb(0, 0, 0, 0.8);
   text-decoration: none;
   padding-left: 2rem;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgb(0, 0, 0, 0.7);
 }
 
 .nav-link:last-child {
@@ -66,7 +71,6 @@ body {
   padding-left: 0;
   padding-bottom: 0;
   font-size: 1.7rem;
-  font-weight: 500;
 }
 
 .main-section ul {
@@ -84,26 +88,32 @@ body {
   font-size: 0.9rem;
   display: block;
   padding: 2rem;
-  border: 1px solid black;
   overflow: scroll;
   background-color: rgba(176, 196, 222, 0.2);
 }
 
-pre {
-  display: block;
-  min-height: 50px;
-}
-
 @media (max-width: 815px) {
   #main-grid {
-    grid-template-columns: none;
-    grid-template-rows: 280px 1fr;
+    display: block;
+    overflow: scroll;
+  }
+
+  #main-doc {
+    min-height: 100vh;
+    overflow: initial;
+  }
+
+  #navbar header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: whitesmoke;
+    border-bottom: 3px solid rgb(0, 0, 0, 0.5);
   }
 
   #navbar {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
     border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    border-right: none;
+    height: 280px;
   }
 }
